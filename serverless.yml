@@ -1,0 +1,15 @@
+service: ccbalambda
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: eu-west-1
+functions:
+  dialAttempts:
+    handler: handler.dialAttempts
+    events:
+      - http:
+          path: dialAttempts
+          method: post
+plugins:
+  - serverless-offline
